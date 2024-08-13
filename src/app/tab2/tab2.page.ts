@@ -1,3 +1,4 @@
+import { foodItemArr } from "../foodItemArr";
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  constructor() {
+  public FoodItemArr: foodItemArr ;
+  public labels: string[] = [];
+
+  refresh(){
+    this.labels = this.FoodItemArr.mostThree();
+  }
+  constructor(FoodItemArr: foodItemArr ) { 
+    this.FoodItemArr=FoodItemArr;
+    
   }
 
 }
