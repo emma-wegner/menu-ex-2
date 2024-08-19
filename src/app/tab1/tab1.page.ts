@@ -1,13 +1,16 @@
-import { Component, numberAttribute } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { foodItemArr } from '../foodItemArr';
+import { FoodItemArr } from '../foodItemArr';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-    public FoodItemArr: foodItemArr ;
+  async ngOnInit() {
+    await this.FoodItemArr.loadSaved();
+  }
+    public FoodItemArr: FoodItemArr ;
     public dosas: string[] = ["Cheese Dosa", "Egg Dosa","Karam Dosa","Masala Dosa",
     "Mysore Masala","Onion Dosa", "Paneer Dosa","Plain Dosa","Idly (3 nos)",
     "Ghee Roast","Spring Dosa","Onion Rava Dosa","Rava Dosa","Rava Masala Dosa",
@@ -40,9 +43,10 @@ export class Tab1Page {
     public thalis=['Veg Thali','Non-Veg Thali'];
     public weekSp=['Jackfruit Special Briyani','Jackfruit Family Pack','Naatu Kodi Pulav','Fry piece Biriyani','Nasi Goreng Veg','Nasi Goreng Chicken','Nasi Goreng Shrimp','Nalli Ghosh Biryani','Gutti Vankaya Biryani'];
     getFdLb(l:string){
-      this.FoodItemArr.foods[this.FoodItemArr.getFd(l)].addCount();
+      this.FoodItemArr.countAdd(l);
     }
-  constructor( FoodItemArr: foodItemArr ) { 
-    this.FoodItemArr=FoodItemArr;
+  constructor(private foodItemArr: FoodItemArr ) { 
+    this.FoodItemArr=foodItemArr;
   }
+  
 }

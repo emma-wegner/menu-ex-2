@@ -1,17 +1,15 @@
-
 export class foodItem {
     name: string;
     count=0; 
       constructor(name:string) {
         this.name = name;
       }
-      getName(){
+     getName(){
         return this.name;
       }
 
       addCount(){
         this.count++;
-        console.log(this.count);
       }
       getCount(){
         return this.count;
@@ -26,12 +24,14 @@ export class foodItem {
       }
 
   }
-  import { Injectable } from '@angular/core';
 
+
+import { Storage } from '@ionic/storage-angular';
+  import { Injectable } from '@angular/core';
   @Injectable({
     providedIn: 'root'
   })
-  export class foodItemArr {
+  export class FoodItemArr {
     public dosas: string[] = ["Cheese Dosa", "Egg Dosa","Karam Dosa","Masala Dosa",
       "Mysore Masala","Onion Dosa", "Paneer Dosa","Plain Dosa","Idly (3 nos)",
       "Ghee Roast","Spring Dosa","Onion Rava Dosa","Rava Dosa","Rava Masala Dosa",
@@ -66,19 +66,23 @@ public biryani: string[]=['Chicken Dum Biryani','Boneless Chicken Dum Biryani','
     public weekSp=['Jackfruit Special Briyani','Jackfruit Family Pack','Naatu Kodi Pulav','Fry piece Biriyani','Nasi Goreng Veg','Nasi Goreng Chicken','Nasi Goreng Shrimp','Nalli Ghosh Biryani','Gutti Vankaya Biryani'];
     
 
-public foods: foodItem []=
-    [];
+  public foods: foodItem []=[];
+
+    constructor(private storage: Storage) {
+      this.loadSaved().then(() => {
+        if (this.foods.length == 0) {
+          this.initializeFoods();
+          this.storage.set('foods', this.foods);
+        }
+      });
+    }
 
     getFd(s: string) {
-        for(let i=0;i<this.foods.length;i++){
-          if (this.foods[i].getName()==s)
-          {
-            return i;
-          }
-        }
-        return -1;
+      console.log(this.foods.findIndex(food => food.getName() === s));
+        return this.foods.findIndex(food => food.getName() === s);
+      
       }
-      mostThree(){
+      mostThree() {
         let ordLst: foodItem []=this.foods;
         //loops and organzises
         for(let i=1; i<ordLst.length;i++)
@@ -104,9 +108,27 @@ public foods: foodItem []=
         //returns strs
         return strs;
       }
-  
+
+      countAdd(s: string) {
+        let i = this.getFd(s);
+        if (i >= 0 && i < this.foods.length) {
+          this.foods[i].addCount(); // Here, make sure this.foods[i] is a valid foodItem object.
+          this.storage.set('foods', this.foods);
+        }
+      }
       
-      constructor() {
+      async loadSaved() {
+        const storedFoods: Array<{ name: string, count: number }> = await this.storage.get('foods');
+        if (storedFoods) {
+          this.foods = storedFoods.map(item => {
+            const food = new foodItem(item.name);
+            food.setCount(item.count);
+            return food;
+          });
+        }
+      }
+      
+      initializeFoods() {
         for(let i=0;i<this.dosas.length;i++){
           this.foods.push(new foodItem(this.dosas[i]));
        }
