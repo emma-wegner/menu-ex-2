@@ -102,7 +102,7 @@ public biryani: string[]=['Chicken Dum Biryani','Boneless Chicken Dum Biryani','
 
         //turn into array of string
         let strs: string[] = [];
-        for(let i=0; i<ordLst.length;i++)
+        for(let i=0; i<10;i++)
         {
           let j=i+1;
           strs.push(j+" "+ordLst[i].getName())
