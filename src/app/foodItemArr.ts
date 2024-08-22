@@ -25,9 +25,11 @@ export class foodItem {
 
   }
 
-
+import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
+import * as localforage from 'localforage';
+import { Drivers } from '@ionic/storage';
 import { Storage } from '@ionic/storage-angular';
-  import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
   @Injectable({
     providedIn: 'root'
   })
@@ -118,6 +120,10 @@ public biryani: string[]=['Chicken Dum Biryani','Boneless Chicken Dum Biryani','
       }
       
       async loadSaved() {
+        await this.storage.defineDriver(CordovaSQLiteDriver);
+        const storage = new Storage({
+          driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB, Drivers.LocalStorage]
+        });
         const storedFoods: Array<{ name: string, count: number }> = await this.storage.get('foods');
         if (storedFoods) {
           this.foods = storedFoods.map(item => {
