@@ -3,330 +3,196 @@
     <ion-title>
       Menu List
     </ion-title>
+    <ion-searchbar  placeholder='Search' [(ngModel)]="searchTerm" showCancelButton="focus"
+    animated>
+    </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" collapse="condense">
   
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Dosas/Tiffins Corner</ion-card-title>
-    </ion-card-header>  
-    <ion-card-content>
+
       <ion-list>
-        <ion-item *ngFor="let dosa of dosas">
+        <ion-item *ngFor="let x of ax | filter:searchTerm">
+        <h1>{{x}}</h1> </ion-item>
+        <ion-item *ngFor="let dosa of dosas | filter:searchTerm">
           <ion-label>{{ dosa }}</ion-label>
-          <ion-button> Ok </ion-button>
-          <ion-button> Good </ion-button>
+          <ion-button (click)="alerty()"> Ok </ion-button>
+          <ion-button (click)="alerty()"> Good </ion-button>
           <ion-button (click)="getFdLb(dosa)"> Amazing! </ion-button>
         </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
+        
+        <ion-item *ngFor="let x of bx | filter:searchTerm">
+          <h1>{{x}}</h1> </ion-item>
+        <ion-item *ngFor="let indo of indoCh | filter:searchTerm" >
+          <ion-label>{{ indo }}</ion-label>
+          <ion-button (click)="alerty()"> Ok </ion-button>
+          <ion-button (click)="alerty()"> Good </ion-button>
+          <ion-button (click)="getFdLb(indo)"> Amazing! </ion-button>
+        </ion-item>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Indo-Chinese</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let indo of indoCh">
-            <ion-label>{{ indo }}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(indo)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Tandoori</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let tan of tandoori">
+        <ion-item *ngFor="let x of cx | filter:searchTerm">
+          <h1>{{x}}</h1> </ion-item>
+        <ion-item *ngFor="let tan of tandoori | filter:searchTerm">
             <ion-label>{{ tan }}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
+            <ion-button (click)="alerty()"> Ok </ion-button>
+            <ion-button (click)="alerty()"> Good </ion-button>
             <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
+        </ion-item>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Vegetarian Appetizers</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let veg of vegApp">
-            <ion-label>{{ veg }}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(veg)"> Amazing! </ion-button>
+        <ion-item *ngFor="let x of dx | filter:searchTerm">
+          <h1>{{x}}</h1> </ion-item>
+          <ion-item *ngFor="let tan of vegApp | filter:searchTerm">
+              <ion-label>{{ tan }}</ion-label>
+              <ion-button (click)="alerty()"> Ok </ion-button>
+              <ion-button (click)="alerty()"> Good </ion-button>
+              <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
           </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Non-Vegetarian Appetizers</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let nveg of nonVegApp">
-            <ion-label>{{ nveg }}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(nveg)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Biryani</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let bir of biryani">
-            <ion-label>{{ bir }}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(bir)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Family Pack Dum Biryani</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let fam of famBiryani">
-            <ion-label>{{ fam}}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(fam)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Veg Curries N Combos</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let veg of vegCurries">
-            <ion-label>{{ veg}}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(veg)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Non Veg Curries N Combos</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let nveg of nonVegCurries">
-            <ion-label>{{ nveg}}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(nveg)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Rolls & Wraps</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let rol of wrap">
-            <ion-label>{{rol}}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(rol)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Chaat</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let ch of chaat">
-            <ion-label>{{ch}}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(ch)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Pizzas</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let rol of pizza">
-            <ion-label>{{rol}}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(rol)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Curry Only</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let rol of curry">
-            <ion-label>{{rol}}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(rol)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Bakery & Puffs</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let rol of bake">
-            <ion-label>{{rol}}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(rol)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Naans & Rotis</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let rol of naan">
-            <ion-label>{{rol}}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(rol)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Desserts & Sweets</ion-card-title>
-      </ion-card-header>  
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let rol of desert">
-            <ion-label>{{rol}}</ion-label>
-            <ion-button> Ok </ion-button>
-            <ion-button> Good </ion-button>
-            <ion-button (click)="getFdLb(rol)"> Amazing! </ion-button>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Beverages</ion-card-title>
-        </ion-card-header>  
-        <ion-card-content>
-          <ion-list>
-            <ion-item *ngFor="let rol of bev">
-              <ion-label>{{rol}}</ion-label>
-              <ion-button> Ok </ion-button>
-              <ion-button> Good </ion-button>
-              <ion-button (click)="getFdLb(rol)"> Amazing! </ion-button>
+          <ion-item *ngFor="let x of ex | filter:searchTerm">
+            <h1>{{x}}</h1> </ion-item>
+            <ion-item *ngFor="let tan of nonVegApp | filter:searchTerm">
+                <ion-label>{{ tan }}</ion-label>
+                <ion-button (click)="alerty()"> Ok </ion-button>
+                <ion-button (click)="alerty()"> Good </ion-button>
+                <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
             </ion-item>
-          </ion-list>
-        </ion-card-content>
-      </ion-card>
 
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Extra</ion-card-title>
-          </ion-card-header>  
-          <ion-card-content>
-            <ion-list>
-              <ion-item *ngFor="let rol of extra">
-                <ion-label>{{rol}}</ion-label>
-                <ion-button> Ok </ion-button>
-                <ion-button> Good </ion-button>
-                <ion-button (click)="getFdLb(rol)"> Amazing! </ion-button>
+            <ion-item *ngFor="let x of fx | filter:searchTerm">
+              <h1>{{x}}</h1> </ion-item>
+              <ion-item *ngFor="let tan of biryani| filter:searchTerm">
+                  <ion-label>{{ tan }}</ion-label>
+                  <ion-button (click)="alerty()"> Ok </ion-button>
+                  <ion-button (click)="alerty()"> Good </ion-button>
+                  <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
               </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
 
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Thalis</ion-card-title>
-            </ion-card-header>  
-            <ion-card-content>
-              <ion-list>
-                <ion-item *ngFor="let rol of thalis">
-                  <ion-label>{{rol}}</ion-label>
-                  <ion-button> Ok </ion-button>
-                  <ion-button> Good </ion-button>
-                  <ion-button (click)="getFdLb(rol)"> Amazing! </ion-button>
+              <ion-item *ngFor="let x of gx | filter:searchTerm">
+                <h1>{{x}}</h1> </ion-item>
+                <ion-item *ngFor="let tan of famBiryani| filter:searchTerm">
+                    <ion-label>{{ tan }}</ion-label>
+                    <ion-button (click)="alerty()"> Ok </ion-button>
+                    <ion-button (click)="alerty()"> Good </ion-button>
+                    <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                 </ion-item>
-              </ion-list>
-            </ion-card-content>
-          </ion-card>
 
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title>Weekend Specials</ion-card-title>
-              </ion-card-header>  
-              <ion-card-content>
-                <ion-list>
-                  <ion-item *ngFor="let rol of weekSp">
-                    <ion-label>{{rol}}</ion-label>
-                    <ion-button> Ok </ion-button>
-                    <ion-button> Good </ion-button>
-                    <ion-button (click)="getFdLb(rol)"> Amazing! </ion-button>
+                <ion-item *ngFor="let x of hx | filter:searchTerm">
+                  <h1>{{x}}</h1> </ion-item>
+                  <ion-item *ngFor="let tan of vegCurries| filter:searchTerm">
+                      <ion-label>{{ tan }}</ion-label>
+                      <ion-button (click)="alerty()"> Ok </ion-button>
+                      <ion-button (click)="alerty()"> Good </ion-button>
+                      <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                   </ion-item>
-                </ion-list>
-              </ion-card-content>
 
-    </ion-card>
+                  <ion-item *ngFor="let x of ix | filter:searchTerm">
+                    <h1>{{x}}</h1> </ion-item>
+                    <ion-item *ngFor="let tan of nonVegCurries| filter:searchTerm">
+                        <ion-label >{{ tan }}</ion-label>
+                        <ion-button (click)="alerty()"> Ok </ion-button>
+                        <ion-button (click)="alerty()"> Good </ion-button>
+                        <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
+                    </ion-item>
+
+                    <ion-item *ngFor="let x of jx | filter:searchTerm">
+                      <h1>{{x}}</h1> </ion-item>
+                      <ion-item *ngFor="let tan of wrap| filter:searchTerm">
+                          <ion-label>{{ tan }}</ion-label>
+                          <ion-button (click)="alerty()"> Ok </ion-button>
+                          <ion-button (click)="alerty()"> Good </ion-button>
+                          <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
+                      </ion-item>
+
+                      <ion-item *ngFor="let x of kx | filter:searchTerm">
+                        <h1>{{x}}</h1> </ion-item>
+                        <ion-item *ngFor="let tan of chaat| filter:searchTerm">
+                            <ion-label>{{ tan }}</ion-label>
+                            <ion-button (click)="alerty()"> Ok </ion-button>
+                            <ion-button (click)="alerty()"> Good </ion-button>
+                            <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
+                        </ion-item>
+
+                        <ion-item *ngFor="let x of lx | filter:searchTerm">
+                          <h1>{{x}}</h1> </ion-item>
+                          <ion-item *ngFor="let tan of pizza| filter:searchTerm">
+                              <ion-label>{{ tan }}</ion-label>
+                              <ion-button (click)="alerty()"> Ok </ion-button>
+                              <ion-button (click)="alerty()"> Good </ion-button>
+                              <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
+                          </ion-item>
+
+                          <ion-item *ngFor="let x of mx | filter:searchTerm">
+                            <h1>{{x}}</h1> </ion-item>
+                            <ion-item *ngFor="let tan of curry| filter:searchTerm">
+                                <ion-label>{{ tan }}</ion-label>
+                                <ion-button (click)="alerty()"> Ok </ion-button>
+                                <ion-button (click)="alerty()"> Good </ion-button>
+                                <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
+                            </ion-item>
+
+                            <ion-item *ngFor="let x of nx | filter:searchTerm">
+                              <h1>{{x}}</h1> </ion-item>
+                              <ion-item *ngFor="let tan of bake| filter:searchTerm">
+                                  <ion-label>{{ tan }}</ion-label>
+                                  <ion-button (click)="alerty()"> Ok </ion-button>
+                                  <ion-button (click)="alerty()"> Good </ion-button>
+                                  <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
+                              </ion-item>
+
+                              <ion-item *ngFor="let x of ox | filter:searchTerm">
+                                <h1>{{x}}</h1> </ion-item>
+                                <ion-item *ngFor="let tan of naan| filter:searchTerm">
+                                    <ion-label>{{ tan }}</ion-label>
+                                    <ion-button (click)="alerty()"> Ok </ion-button>
+                                    <ion-button (click)="alerty()"> Good </ion-button>
+                                    <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
+                                </ion-item>
+
+                                <ion-item *ngFor="let x of px | filter:searchTerm">
+                                  <h1>{{x}}</h1> </ion-item>
+                                  <ion-item *ngFor="let tan of desert| filter:searchTerm">
+                                      <ion-label>{{ tan }}</ion-label>
+                                      <ion-button (click)="alerty()"> Ok </ion-button>
+                                      <ion-button (click)="alerty()"> Good </ion-button>
+                                      <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
+                                  </ion-item>
+
+                                  <ion-item *ngFor="let x of qx | filter:searchTerm">
+                                    <h1>{{x}}</h1> </ion-item>
+                                    <ion-item *ngFor="let tan of bev| filter:searchTerm">
+                                        <ion-label>{{ tan }}</ion-label>
+                                        <ion-button (click)="alerty()"> Ok </ion-button>
+                                        <ion-button (click)="alerty()"> Good </ion-button>
+                                        <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
+                                    </ion-item>
+
+                                    <ion-item *ngFor="let x of rx | filter:searchTerm">
+                                      <h1>{{x}}</h1> </ion-item>
+                                      <ion-item *ngFor="let tan of extra| filter:searchTerm">
+                                          <ion-label>{{ tan }}</ion-label>
+                                          <ion-button (click)="alerty()"> Ok </ion-button>
+                                          <ion-button (click)="alerty()"> Good </ion-button>
+                                          <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
+                                      </ion-item>
+
+                                      <ion-item *ngFor="let x of sx | filter:searchTerm">
+                                        <h1>{{x}}</h1> </ion-item>
+                                        <ion-item *ngFor="let tan of thalis| filter:searchTerm">
+                                            <ion-label>{{ tan }}</ion-label>
+                                            <ion-button (click)="alerty()"> Ok </ion-button>
+                                            <ion-button (click)="alerty()"> Good </ion-button>
+                                            <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
+                                        </ion-item>
+
+                                        <ion-item *ngFor="let x of tx | filter:searchTerm">
+                                          <h1>{{x}}</h1> </ion-item>
+                                          <ion-item *ngFor="let tan of weekSp| filter:searchTerm">
+                                              <ion-label>{{ tan }}</ion-label>
+                                              <ion-button (click)="alerty()"> Ok </ion-button>
+                                              <ion-button (click)="alerty()"> Good </ion-button>
+                                              <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
+                                          </ion-item>
+
+      </ion-list>
   
 </ion-content>

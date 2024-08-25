@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-
 import { FoodItemArr } from '../foodItemArr';
 @Component({
   selector: 'app-tab1',
@@ -10,6 +9,8 @@ export class Tab1Page {
   async ngOnInit() {
     await this.FoodItemArr.loadSaved();
   }
+    searchTerm: string='';
+
     public FoodItemArr: FoodItemArr ;
     public dosas: string[] = ["Cheese Dosa", "Egg Dosa","Karam Dosa","Masala Dosa",
     "Mysore Masala","Onion Dosa", "Paneer Dosa","Plain Dosa","Idly (3 nos)",
@@ -43,8 +44,36 @@ export class Tab1Page {
     public thalis=['Veg Thali','Non-Veg Thali'];
     public weekSp=['Jackfruit Special Briyani','Jackfruit Family Pack','Naatu Kodi Pulav','Fry piece Biriyani','Nasi Goreng Veg','Nasi Goreng Chicken','Nasi Goreng Shrimp','Nalli Ghosh Biryani','Gutti Vankaya Biryani'];
     getFdLb(l:string){
+      alert("Food Rated");
       this.FoodItemArr.countAdd(l);
     }
+    alerty(){
+      alert("Food Rated");
+    }
+
+    
+    public ax=["Dosas/Tiffins Corner"];
+    public bx=["Indo-Chinese"];
+    public cx=["Tandoori"];
+    public dx=["Vegetarian Appetizers"];
+    public ex=["Non-Vegetarian Appetizers"];
+    public fx=["Biryani"];
+    public gx=["Family Pack Dum Biryani"];
+    public hx=["Veg Curries N Combos"];
+    public ix=["Non Veg Curries N Combos"];
+    public jx=["Rolls & Wraps"];
+    public kx=["Chaat"];
+    public lx=["Pizzas"];
+    public mx=["Curry Only"];
+    public nx=["Bakery & Puffs"];
+    public ox=["Naans & Rotis"];
+    public px=["Desserts & Sweets"];
+    public qx=["Beverages"];
+    public rx=["Extra"];
+    public sx=["Thalis"];
+    public tx=["Weekend Specials"];
+
+
   constructor(private foodItemArr: FoodItemArr ) { 
     this.FoodItemArr=foodItemArr;
   }
