@@ -7,6 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+
+  handleRefresh(event: { target: { complete: () => void; }; }) {
+    setTimeout(() => {
+      this.labels = this.FoodItemArr.mostThree();
+      event.target.complete();
+    }, 2000);
+  }
+  
   async ngOnInit() {
     await this.FoodItemArr.loadSaved();
   }
@@ -14,11 +22,9 @@ export class Tab2Page {
   public FoodItemArr: FoodItemArr ;
   public labels: string[] = [];
 
-  refresh(){
-    this.labels = this.FoodItemArr.mostThree();
-  }
   constructor(private foodItemArr: FoodItemArr) { 
     this.FoodItemArr=foodItemArr;
+    this.labels = this.FoodItemArr.mostThree();
     
   }
 

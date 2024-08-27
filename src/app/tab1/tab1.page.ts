@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FoodItemArr } from '../foodItemArr';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -44,14 +45,9 @@ export class Tab1Page {
     public thalis=['Veg Thali','Non-Veg Thali'];
     public weekSp=['Jackfruit Special Briyani','Jackfruit Family Pack','Naatu Kodi Pulav','Fry piece Biriyani','Nasi Goreng Veg','Nasi Goreng Chicken','Nasi Goreng Shrimp','Nalli Ghosh Biryani','Gutti Vankaya Biryani'];
     getFdLb(l:string){
-      alert("Food Rated");
+      this.openToast();
       this.FoodItemArr.countAdd(l);
     }
-    alerty(){
-      alert("Food Rated");
-    }
-
-    
     public ax=["Dosas/Tiffins Corner"];
     public bx=["Indo-Chinese"];
     public cx=["Tandoori"];
@@ -74,8 +70,15 @@ export class Tab1Page {
     public tx=["Weekend Specials"];
 
 
-  constructor(private foodItemArr: FoodItemArr ) { 
+  constructor(private foodItemArr: FoodItemArr, public toastController: ToastController) { 
     this.FoodItemArr=foodItemArr;
   }
   
+  async openToast(){
+    const toast= await this.toastController.create({
+      message: "Food Sucessfully Rated",
+      duration: 5000
+    });
+    toast.present();
+  }
 }

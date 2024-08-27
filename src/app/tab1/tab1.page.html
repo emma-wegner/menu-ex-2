@@ -17,8 +17,8 @@
         <h1>{{x}}</h1> </ion-item>
         <ion-item *ngFor="let dosa of dosas | filter:searchTerm">
           <ion-label>{{ dosa }}</ion-label>
-          <ion-button (click)="alerty()"> Ok </ion-button>
-          <ion-button (click)="alerty()"> Good </ion-button>
+          <ion-button (click)="openToast()"> Ok </ion-button>
+          <ion-button (click)="openToast()"> Good </ion-button>
           <ion-button (click)="getFdLb(dosa)"> Amazing! </ion-button>
         </ion-item>
         
@@ -26,8 +26,8 @@
           <h1>{{x}}</h1> </ion-item>
         <ion-item *ngFor="let indo of indoCh | filter:searchTerm" >
           <ion-label>{{ indo }}</ion-label>
-          <ion-button (click)="alerty()"> Ok </ion-button>
-          <ion-button (click)="alerty()"> Good </ion-button>
+          <ion-button (click)="openToast()"> Ok </ion-button>
+          <ion-button (click)="openToast()"> Good </ion-button>
           <ion-button (click)="getFdLb(indo)"> Amazing! </ion-button>
         </ion-item>
 
@@ -35,8 +35,8 @@
           <h1>{{x}}</h1> </ion-item>
         <ion-item *ngFor="let tan of tandoori | filter:searchTerm">
             <ion-label>{{ tan }}</ion-label>
-            <ion-button (click)="alerty()"> Ok </ion-button>
-            <ion-button (click)="alerty()"> Good </ion-button>
+            <ion-button (click)="openToast()"> Ok </ion-button>
+            <ion-button (click)="openToast()"> Good </ion-button>
             <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
         </ion-item>
 
@@ -44,8 +44,8 @@
           <h1>{{x}}</h1> </ion-item>
           <ion-item *ngFor="let tan of vegApp | filter:searchTerm">
               <ion-label>{{ tan }}</ion-label>
-              <ion-button (click)="alerty()"> Ok </ion-button>
-              <ion-button (click)="alerty()"> Good </ion-button>
+              <ion-button (click)="openToast()"> Ok </ion-button>
+              <ion-button (click)="openToast()"> Good </ion-button>
               <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
           </ion-item>
 
@@ -53,8 +53,8 @@
             <h1>{{x}}</h1> </ion-item>
             <ion-item *ngFor="let tan of nonVegApp | filter:searchTerm">
                 <ion-label>{{ tan }}</ion-label>
-                <ion-button (click)="alerty()"> Ok </ion-button>
-                <ion-button (click)="alerty()"> Good </ion-button>
+                <ion-button (click)="openToast()"> Ok </ion-button>
+                <ion-button (click)="openToast()"> Good </ion-button>
                 <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
             </ion-item>
 
@@ -62,8 +62,8 @@
               <h1>{{x}}</h1> </ion-item>
               <ion-item *ngFor="let tan of biryani| filter:searchTerm">
                   <ion-label>{{ tan }}</ion-label>
-                  <ion-button (click)="alerty()"> Ok </ion-button>
-                  <ion-button (click)="alerty()"> Good </ion-button>
+                  <ion-button (click)="openToast()"> Ok </ion-button>
+                  <ion-button (click)="openToast()"> Good </ion-button>
                   <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
               </ion-item>
 
@@ -71,8 +71,8 @@
                 <h1>{{x}}</h1> </ion-item>
                 <ion-item *ngFor="let tan of famBiryani| filter:searchTerm">
                     <ion-label>{{ tan }}</ion-label>
-                    <ion-button (click)="alerty()"> Ok </ion-button>
-                    <ion-button (click)="alerty()"> Good </ion-button>
+                    <ion-button (click)="openToast()"> Ok </ion-button>
+                    <ion-button (click)="openToast()"> Good </ion-button>
                     <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                 </ion-item>
 
@@ -80,8 +80,8 @@
                   <h1>{{x}}</h1> </ion-item>
                   <ion-item *ngFor="let tan of vegCurries| filter:searchTerm">
                       <ion-label>{{ tan }}</ion-label>
-                      <ion-button (click)="alerty()"> Ok </ion-button>
-                      <ion-button (click)="alerty()"> Good </ion-button>
+                      <ion-button (click)="openToast()"> Ok </ion-button>
+                      <ion-button (click)="openToast()"> Good </ion-button>
                       <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                   </ion-item>
 
@@ -89,8 +89,8 @@
                     <h1>{{x}}</h1> </ion-item>
                     <ion-item *ngFor="let tan of nonVegCurries| filter:searchTerm">
                         <ion-label >{{ tan }}</ion-label>
-                        <ion-button (click)="alerty()"> Ok </ion-button>
-                        <ion-button (click)="alerty()"> Good </ion-button>
+                        <ion-button (click)="openToast()"> Ok </ion-button>
+                        <ion-button (click)="openToast()"> Good </ion-button>
                         <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                     </ion-item>
 
@@ -98,8 +98,8 @@
                       <h1>{{x}}</h1> </ion-item>
                       <ion-item *ngFor="let tan of wrap| filter:searchTerm">
                           <ion-label>{{ tan }}</ion-label>
-                          <ion-button (click)="alerty()"> Ok </ion-button>
-                          <ion-button (click)="alerty()"> Good </ion-button>
+                          <ion-button (click)="openToast()"> Ok </ion-button>
+                          <ion-button (click)="openToast()"> Good </ion-button>
                           <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                       </ion-item>
 
@@ -107,8 +107,8 @@
                         <h1>{{x}}</h1> </ion-item>
                         <ion-item *ngFor="let tan of chaat| filter:searchTerm">
                             <ion-label>{{ tan }}</ion-label>
-                            <ion-button (click)="alerty()"> Ok </ion-button>
-                            <ion-button (click)="alerty()"> Good </ion-button>
+                            <ion-button (click)="openToast()"> Ok </ion-button>
+                            <ion-button (click)="openToast()"> Good </ion-button>
                             <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                         </ion-item>
 
@@ -116,8 +116,8 @@
                           <h1>{{x}}</h1> </ion-item>
                           <ion-item *ngFor="let tan of pizza| filter:searchTerm">
                               <ion-label>{{ tan }}</ion-label>
-                              <ion-button (click)="alerty()"> Ok </ion-button>
-                              <ion-button (click)="alerty()"> Good </ion-button>
+                              <ion-button (click)="openToast()"> Ok </ion-button>
+                              <ion-button (click)="openToast()"> Good </ion-button>
                               <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                           </ion-item>
 
@@ -125,8 +125,8 @@
                             <h1>{{x}}</h1> </ion-item>
                             <ion-item *ngFor="let tan of curry| filter:searchTerm">
                                 <ion-label>{{ tan }}</ion-label>
-                                <ion-button (click)="alerty()"> Ok </ion-button>
-                                <ion-button (click)="alerty()"> Good </ion-button>
+                                <ion-button (click)="openToast()"> Ok </ion-button>
+                                <ion-button (click)="openToast()"> Good </ion-button>
                                 <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                             </ion-item>
 
@@ -134,8 +134,8 @@
                               <h1>{{x}}</h1> </ion-item>
                               <ion-item *ngFor="let tan of bake| filter:searchTerm">
                                   <ion-label>{{ tan }}</ion-label>
-                                  <ion-button (click)="alerty()"> Ok </ion-button>
-                                  <ion-button (click)="alerty()"> Good </ion-button>
+                                  <ion-button (click)="openToast()"> Ok </ion-button>
+                                  <ion-button (click)="openToast()"> Good </ion-button>
                                   <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                               </ion-item>
 
@@ -143,8 +143,8 @@
                                 <h1>{{x}}</h1> </ion-item>
                                 <ion-item *ngFor="let tan of naan| filter:searchTerm">
                                     <ion-label>{{ tan }}</ion-label>
-                                    <ion-button (click)="alerty()"> Ok </ion-button>
-                                    <ion-button (click)="alerty()"> Good </ion-button>
+                                    <ion-button (click)="openToast()"> Ok </ion-button>
+                                    <ion-button (click)="openToast()"> Good </ion-button>
                                     <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                                 </ion-item>
 
@@ -152,8 +152,8 @@
                                   <h1>{{x}}</h1> </ion-item>
                                   <ion-item *ngFor="let tan of desert| filter:searchTerm">
                                       <ion-label>{{ tan }}</ion-label>
-                                      <ion-button (click)="alerty()"> Ok </ion-button>
-                                      <ion-button (click)="alerty()"> Good </ion-button>
+                                      <ion-button (click)="openToast()"> Ok </ion-button>
+                                      <ion-button (click)="openToast()"> Good </ion-button>
                                       <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                                   </ion-item>
 
@@ -161,8 +161,8 @@
                                     <h1>{{x}}</h1> </ion-item>
                                     <ion-item *ngFor="let tan of bev| filter:searchTerm">
                                         <ion-label>{{ tan }}</ion-label>
-                                        <ion-button (click)="alerty()"> Ok </ion-button>
-                                        <ion-button (click)="alerty()"> Good </ion-button>
+                                        <ion-button (click)="openToast()"> Ok </ion-button>
+                                        <ion-button (click)="openToast()"> Good </ion-button>
                                         <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                                     </ion-item>
 
@@ -170,8 +170,8 @@
                                       <h1>{{x}}</h1> </ion-item>
                                       <ion-item *ngFor="let tan of extra| filter:searchTerm">
                                           <ion-label>{{ tan }}</ion-label>
-                                          <ion-button (click)="alerty()"> Ok </ion-button>
-                                          <ion-button (click)="alerty()"> Good </ion-button>
+                                          <ion-button (click)="openToast()"> Ok </ion-button>
+                                          <ion-button (click)="openToast()"> Good </ion-button>
                                           <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                                       </ion-item>
 
@@ -179,8 +179,8 @@
                                         <h1>{{x}}</h1> </ion-item>
                                         <ion-item *ngFor="let tan of thalis| filter:searchTerm">
                                             <ion-label>{{ tan }}</ion-label>
-                                            <ion-button (click)="alerty()"> Ok </ion-button>
-                                            <ion-button (click)="alerty()"> Good </ion-button>
+                                            <ion-button (click)="openToast()"> Ok </ion-button>
+                                            <ion-button (click)="openToast()"> Good </ion-button>
                                             <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                                         </ion-item>
 
@@ -188,8 +188,8 @@
                                           <h1>{{x}}</h1> </ion-item>
                                           <ion-item *ngFor="let tan of weekSp| filter:searchTerm">
                                               <ion-label>{{ tan }}</ion-label>
-                                              <ion-button (click)="alerty()"> Ok </ion-button>
-                                              <ion-button (click)="alerty()"> Good </ion-button>
+                                              <ion-button (click)="openToast()"> Ok </ion-button>
+                                              <ion-button (click)="openToast()"> Good </ion-button>
                                               <ion-button (click)="getFdLb(tan)"> Amazing! </ion-button>
                                           </ion-item>
 

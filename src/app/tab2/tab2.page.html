@@ -7,7 +7,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button (click)="this.refresh()"> refresh </ion-button>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-list>
     <ion-item *ngFor="let label of labels">
       <ion-label>{{ label }}</ion-label>
