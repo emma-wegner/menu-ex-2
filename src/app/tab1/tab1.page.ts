@@ -45,7 +45,7 @@ export class Tab1Page {
     public thalis=['Veg Thali','Non-Veg Thali'];
     public weekSp=['Jackfruit Special Briyani','Jackfruit Family Pack','Naatu Kodi Pulav','Fry piece Biriyani','Nasi Goreng Veg','Nasi Goreng Chicken','Nasi Goreng Shrimp','Nalli Ghosh Biryani','Gutti Vankaya Biryani'];
     getFdLb(l:string){
-      this.openToast();
+      this.openToast(l);
       this.FoodItemArr.countAdd(l);
     }
     public ax=["Dosas/Tiffins Corner"];
@@ -74,9 +74,9 @@ export class Tab1Page {
     this.FoodItemArr=foodItemArr;
   }
   
-  async openToast(){
+  async openToast(s: string){
     const toast= await this.toastController.create({
-      message: "Food Sucessfully Rated",
+      message: s+" Sucessfully Rated",
       duration: 5000
     });
     toast.present();
