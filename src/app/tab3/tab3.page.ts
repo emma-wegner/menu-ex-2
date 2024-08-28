@@ -6,7 +6,9 @@ import { PhotoService } from '../services/photo.service';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-
+  async ngOnInit() {
+    await this.photoService.loadSaved();
+  }
   constructor(public photoService: PhotoService) { }
     
  

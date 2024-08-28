@@ -37,7 +37,7 @@ export class PhotoService {
   
     // Save the picture and add it to photo collection
     const savedImageFile = await this.savePicture(capturedPhoto);
-
+    this.photos.unshift(savedImageFile);
     Preferences.set({
       key: this.PHOTO_STORAGE,
       value: JSON.stringify(this.photos),
@@ -55,7 +55,6 @@ export class PhotoService {
       // Check for successful conversion to Base64
       if (typeof imageBase64 !== 'string') {
         console.error('Image conversion to Base64 failed.');
-        return;
       }
       // Model initialisation missing for brevity
       let prompt = [
